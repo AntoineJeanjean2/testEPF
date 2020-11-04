@@ -93,8 +93,14 @@ public class Grille {
                     }
                 
                 for (i=ligne, j=colonne;i<ligne+3 && i<6 && j<colonne+3 && j<7;i++,j++){
-                         if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
-                             return true;
+                    if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
+                        return true;
+                         }                    
+                }
+                
+                for (i=ligne, j=colonne;i<ligne-3 && i<6 && j<colonne+3 && j<7;i--,j++){
+                    if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
+                        return true;
                          }                    
                 } 
                 }
