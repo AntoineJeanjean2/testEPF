@@ -81,7 +81,7 @@ public class Grille {
                 int ligne=i;
                 int colonne=j;
                 
-                for (i=ligne;i<ligne+4&&i<6;i++){
+                for (i=ligne;i<ligne+4&&i<6;i++){    //Test de l'alignement de 4 jetons sur une colonne 
                     int compteur1=0;
                     if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
                         compteur1++;
@@ -91,7 +91,7 @@ public class Grille {
                     }
                 }
                 
-                for (j=colonne;j<colonne+4&&j<7;j++){
+                for (j=colonne;j<colonne+4&&j<7;j++){  //Test de l'alignement de 4 jetons sur une ligne
                     int compteur2=0;
                     if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
                         compteur2++;
@@ -100,7 +100,7 @@ public class Grille {
                         return true;
                     }
                 }
-                for (i=ligne, j=colonne;i<ligne+4 && i<6 && j<colonne+4 && j<7;i++,j++){
+                for (i=ligne, j=colonne;i<ligne+4 && i<6 && j<colonne+4 && j<7;i++,j++){   //Test de l'alignement de 4 jetons sur une diagonale (haut droite vers bas gauche)
                     int compteur3=0;
                     if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
                         compteur3++;
@@ -110,7 +110,7 @@ public class Grille {
                     }
                 }
                 
-                for (i=ligne, j=colonne;i<ligne-4 && i<6 && j<colonne+4 && j<7;i--,j++){
+                for (i=ligne, j=colonne;i<ligne-4 && i<6 && j<colonne+4 && j<7;i--,j++){  //Test de l'alignement de 4 jetons sur une diagonale (bas droite vers haut gauche)
                     int compteur4=0;
                     if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
                         compteur4++;
