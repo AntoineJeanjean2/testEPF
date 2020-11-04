@@ -81,32 +81,48 @@ public class Grille {
                 int ligne=i;
                 int colonne=j;
                 
-                for (i=ligne;i<ligne+3&&i<6;i++){
+                for (i=ligne;i<ligne+4&&i<6;i++){
+                    int compteur1=0;
                     if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
+                        compteur1++;
+                    }
+                    if (compteur1==4){
                         return true;
                     }
                 }
                 
-                for (j=colonne;j<colonne+3&&j<7;j++){
+                for (j=colonne;j<colonne+4&&j<7;j++){
+                    int compteur2=0;
                     if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
+                        compteur2++;
+                    }
+                    if (compteur2==4){
                         return true;
                     }
-                
-                for (i=ligne, j=colonne;i<ligne+3 && i<6 && j<colonne+3 && j<7;i++,j++){
+                }
+                for (i=ligne, j=colonne;i<ligne+4 && i<6 && j<colonne+4 && j<7;i++,j++){
+                    int compteur3=0;
                     if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
+                        compteur3++;
+                        }
+                    if (compteur3==4){
                         return true;
-                        }                    
+                    }
                 }
                 
-                for (i=ligne, j=colonne;i<ligne-3 && i<6 && j<colonne+3 && j<7;i--,j++){
+                for (i=ligne, j=colonne;i<ligne-4 && i<6 && j<colonne+4 && j<7;i--,j++){
+                    int compteur4=0;
                     if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
-                        return true;
+                        compteur4++;
                          }                    
+                    if (compteur4==4){
+                        return true;
+                    }
                 } 
-                }
     }
     }return false;
-}
+    }
+
 
     public boolean colonneRemplie(int colonne){
         return Cellules[5][colonne].recupererJeton()!=null;
