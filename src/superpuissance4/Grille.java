@@ -92,14 +92,14 @@ public class Grille {
                         return true;
                     }
                 
-                for (i=ligne;i<ligne+4;i++){
-                         if (Cellules[i][j].jetonCourant.couleur)
-                     }
-                    
+                for (i=ligne, j=colonne;i<ligne+3 && j<colonne+3;i++,j++){
+                         if (Cellules[i][j].jetonCourant.couleur.equals(couleurTest)){
+                             return true;
+                         }                    
                 } 
                 }
-    }return false;
     }
+    }return false;
 }
-  
+}  
 
