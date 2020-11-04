@@ -92,7 +92,7 @@ public class Grille {
                         return true;
                     }
                 
-                for (i=ligne, j=colonne;i<ligne+3 && j<colonne+3;i++,j++){
+                for (i=ligne, j=colonne;i<ligne+3 && i<6 && j<colonne+3 && j<7;i++,j++){
                          if (Cellules[i][j].jetonCourant.couleur.equals(couleurTest)){
                              return true;
                          }                    
