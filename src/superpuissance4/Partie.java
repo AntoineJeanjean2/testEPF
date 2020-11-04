@@ -67,7 +67,17 @@ public class Partie {
 
     public void debuterPartie(){
         initialiserPartie();
+        this.grilleJeu.afficherGrilleSurConsole();
         System.out.println("Effectuez une action");
+        
+        while(grilleJeu.etreGagnantePourJoueur(joueurCourant)!=true){
+            System.out.println(joueurCourant.nom+" Choisissez dans quelles colonne vous souhaittez placer un jeton");
+            
+            Scanner sc=new Scanner(System.in);
+            int saisie =sc.nextInt();
+        }
+        
+       
         
         
     }
