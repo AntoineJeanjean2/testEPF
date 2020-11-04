@@ -30,8 +30,10 @@ public class Cellule {
        }            
 }
     
-    public Jeton recupererJeton(Jeton jetonCourant){
-        return jetonCourant;
+    public Jeton recupererJeton(){
+        Jeton unJeton=jetonCourant;
+        jetonCourant=null;
+        return unJeton;
     }
     
     public String lireCouleurDuJeton(){
