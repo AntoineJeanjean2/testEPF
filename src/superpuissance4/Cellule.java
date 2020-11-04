@@ -34,5 +34,7 @@ public class Cellule {
         return jetonCourant;
     }
     
-    
+    public String lireCouleurDuJeton(){
+        return jetonCourant.couleur;
+}
 }

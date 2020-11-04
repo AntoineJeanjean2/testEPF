@@ -66,6 +66,9 @@ public class Partie {
     }
 
     public void debuterPartie(){
+        initialiserPartie();
+        System.out.println("Effectuez une action");
+        
         
     }
 }
