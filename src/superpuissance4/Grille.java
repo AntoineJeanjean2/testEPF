@@ -5,6 +5,8 @@
  */
 package superpuissance4;
 
+import java.util.Arrays;
+
 /**
  *
  * @author antoi
@@ -54,7 +56,7 @@ public class Grille {
     }
 }
     public void afficherGrilleSurConsole(){
-        System.out.println(Cellules);
+        System.out.println(Arrays.deepToString(Cellules));
 }
     public boolean celluleOccupee(int i, int j){
         if (Cellules[i][j]!=null){
@@ -75,18 +77,18 @@ public class Grille {
     public boolean etreGagnantePourJoueur(Joueur unJoueur){
         String couleurTest=unJoueur.couleur;
         for (int i=0;i<6;i++){
-            for (int j=0;i<7;j++){
+            for (int j=0;j<7;j++){
                 int ligne=i;
                 int colonne=j;
                 
-                for (i=ligne;i<ligne+4;i++){
-                    if (Cellules[i][j].jetonCourant.couleur==couleurTest){
+                for (i=ligne;i<ligne+3&&i<6;i++){
+                    if (Cellules[i][j].jetonCourant.couleur.equals(couleurTest)){
                         return true;
                     }
                 }
                 
-                for (j=colonne;j<colonne+4;j++){
-                    if (Cellules[i][j].jetonCourant.couleur==couleurTest){
+                for (j=colonne;j<colonne+3&&j<7;j++){
+                    if (Cellules[i][j].jetonCourant.couleur.equals(couleurTest)){
                         return true;
                     }
                 
