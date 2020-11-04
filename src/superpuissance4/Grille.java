@@ -70,7 +70,7 @@ public class Grille {
     
     public String lireCouleurDuJeton(int i, int j){
         String couleur_a_retourner;
-        couleur_a_retourner=Cellules[i][j].jetonCourant.couleur;
+        couleur_a_retourner=Cellules[i][j].lireCouleurDuJeton();
         return couleur_a_retourner;
     }
 
@@ -82,18 +82,18 @@ public class Grille {
                 int colonne=j;
                 
                 for (i=ligne;i<ligne+3&&i<6;i++){
-                    if (Cellules[i][j].jetonCourant.couleur.equals(couleurTest)){
+                    if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
                         return true;
                     }
                 }
                 
                 for (j=colonne;j<colonne+3&&j<7;j++){
-                    if (Cellules[i][j].jetonCourant.couleur.equals(couleurTest)){
+                    if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
                         return true;
                     }
                 
                 for (i=ligne, j=colonne;i<ligne+3 && i<6 && j<colonne+3 && j<7;i++,j++){
-                         if (Cellules[i][j].jetonCourant.couleur.equals(couleurTest)){
+                         if (Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
                              return true;
                          }                    
                 } 
