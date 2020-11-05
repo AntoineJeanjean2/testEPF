@@ -64,6 +64,14 @@ public class Partie {
             joueurCourant=listeJoueurs[1];
         }   
     }
+    
+    public Joueur prochainJoueur(Joueur un_joueur) {
+        if (listeJoueurs[0] == joueurCourant) {
+            return listeJoueurs[1];
+        }
+        return listeJoueurs[0];
+    }
+    
     public void tourDeJeu(){
         while(grilleJeu.etreGagnantePourJoueur(joueurCourant)!=true && grilleJeu.etreRemplie()!=true){
                 System.out.println(joueurCourant.nom+" Choisissez dans quelles colonne vous souhaittez placer un jeton");
@@ -88,7 +96,7 @@ public class Partie {
                         System.out.println("Cette colonne est remplie, veuillez saisir un autre numéro de colonne");
                         tourDeJeu();
                     }
-                }
+                }joueurCourant=prochainJoueur(joueurCourant);
         }
     }
 
@@ -97,9 +105,16 @@ public class Partie {
         this.grilleJeu.afficherGrilleSurConsole();
         System.out.println("Effectuez une action");
         tourDeJeu();
+        
+        if (grilleJeu.etreGagnantePourJoueur(joueurCourant)==true){
+            System.out.println("Le joueur "+joueurCourant.nom+" a gagné" );
+        }
+        
+        if (grilleJeu.etreRemplie()==true && grilleJeu.etreGagnantePourJoueur(joueurCourant)!=true){
+            System.out.println("La grille est pleine, personne n'a gagné");
  }
         
        
-        
+    }        
         
 }
