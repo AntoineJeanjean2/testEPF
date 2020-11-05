@@ -56,7 +56,7 @@ public class Grille {
     }
 }
     public void afficherGrilleSurConsole(){
-        for (int i=0; i <6; i++) { //à rappeler que la ligne du haut de la grille est de coordonées i=0
+        for (int i=0; i <6; i++) { 
             for (int j =0;j < 7; j++){
                 if (Cellules[i][j].jetonCourant != null)
                 {
