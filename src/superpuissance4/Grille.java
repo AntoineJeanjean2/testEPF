@@ -118,13 +118,12 @@ public class Grille {
                         }
                     } 
         }
-        }
         }return false;
-    }
+        }
+    
 
 
     public boolean colonneRemplie(int colonne){
         return Cellules[5][colonne].recupererJeton()!=null;
-    }
-}  
-
+    }  
+}
