@@ -58,8 +58,7 @@ public class Grille {
     public void afficherGrilleSurConsole(){
         for (int i=0; i <6; i++) { 
             for (int j =0;j < 7; j++){
-                if (Cellules[i][j].jetonCourant != null)
-                {
+                if (Cellules[i][j].jetonCourant != null) {
                     System.out.print(Cellules[i][j].lireCouleurDuJeton());
                 }
                 else{
