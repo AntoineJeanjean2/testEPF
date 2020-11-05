@@ -64,38 +64,42 @@ public class Partie {
             joueurCourant=listeJoueurs[1];
         }   
     }
+    public void tourDeJeu(){
+        while(grilleJeu.etreGagnantePourJoueur(joueurCourant)!=true && grilleJeu.etreRemplie()!=true){
+                System.out.println(joueurCourant.nom+" Choisissez dans quelles colonne vous souhaittez placer un jeton");
+
+                Scanner sc=new Scanner(System.in);
+                int saisie =sc.nextInt();
+
+                while (saisie<0&&saisie>7){
+                    System.out.println("Mauvaise  saisie, saisissez un numéro de colonne valide");
+                    sc=new Scanner(System.in);
+                    saisie=sc.nextInt();
+                }
+
+                if (joueurCourant.nombreJetonsRestants>0){
+                    boolean jetonAposer;
+                    jetonAposer=grilleJeu.ajouterJetonDansColonne(joueurCourant.listeJetons[joueurCourant.nombreJetonsRestants-1],saisie);
+
+                    if (jetonAposer==true){
+                        joueurCourant.nombreJetonsRestants--;                
+                    }
+                    else{
+                        System.out.println("Cette colonne est remplie, veuillez saisir un autre numéro de colonne");
+                        tourDeJeu();
+                    }
+                }
+        }
+    }
 
     public void debuterPartie(){
         initialiserPartie();
         this.grilleJeu.afficherGrilleSurConsole();
         System.out.println("Effectuez une action");
-        
-        while(grilleJeu.etreGagnantePourJoueur(joueurCourant)!=true){
-            System.out.println(joueurCourant.nom+" Choisissez dans quelles colonne vous souhaittez placer un jeton");
-            
-            Scanner sc=new Scanner(System.in);
-            int saisie =sc.nextInt();
-            
-            while (saisie<0&&saisie>7){
-                System.out.println("Mauvaise  saisie, saisissez un numéro de colonne valide");
-                sc=new Scanner(System.in);
-                saisie=sc.nextInt();
-            }
-            
-            boolean jetonAposer;
-            jetonAposer=grilleJeu.ajouterJetonDansColonne(joueurCourant.listeJetons[joueurCourant.nombreJetonsRestants-1],saisie);
-            
-            if (jetonAposer==true){
-                joueurCourant.nombreJetonsRestants--;
-            }
-            
-            
-                    
-                
-        }
+        tourDeJeu();
+ }
         
        
         
         
-    }
 }
