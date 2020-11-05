@@ -75,6 +75,15 @@ public class Partie {
             
             Scanner sc=new Scanner(System.in);
             int saisie =sc.nextInt();
+            
+            while (saisie<0&&saisie>7){
+                System.out.println("Mauvaise  saisie, saisissez un numéro de colonne valide");
+                sc=new Scanner(System.in);
+                saisie=sc.nextInt();
+            }
+            
+            boolean jetonAposer;
+            
         }
         
        
