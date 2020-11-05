@@ -57,20 +57,22 @@ public class Grille {
 }
     public void afficherGrilleSurConsole(){
         for (int i = 5; i >= 0; i--) {
-            for (int j = 0; j < 7; j++) {
-                if (Cellules[i][j].jetonCourant == null) {
-                    System.out.print("\u001B[0m N ");
-                } else {
-                    System.out.print(Cellules[i][j].jetonCourant);
+            for (int j = 0; j < 7; j++) {                
+                if (Cellules[i][j]!=null){
+                    if (Cellules[i][j].jetonCourant == null) {
+                        System.out.print("\u001B[0m N ");
+                    } else {
+                        System.out.print(Cellules[i][j].jetonCourant);
+                    }
                 }
+                System.out.println(" " + (i+1));
             }
-            System.out.println(" " + (i+1));
         }
-        for(int i=0; i<7;i++){
-            System.out.print(" " + (i+1) + " ");
-        }
-        System.out.println();
+            for(int i=0; i<7;i++){
+                System.out.print(" " + (i+1) + " ");
             }
+            System.out.println();
+        }
     
     public boolean celluleOccupee(int i, int j){
         if (Cellules[i][j]!=null){
