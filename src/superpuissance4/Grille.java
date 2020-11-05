@@ -56,8 +56,18 @@ public class Grille {
     }
 }
     public void afficherGrilleSurConsole(){
-        System.out.println(Arrays.toString(Cellules));
+        for (int i=0; i <6; i++) { //à rappeler que la ligne du haut de la grille est de coordonées i=0
+            for (int j =0;j < 7; j++){
+                if (Cellules[i][j].jetonCourant != null)
+                {
+                    System.out.print(Cellules[i][j].lireCouleurDuJeton());
                 }
+                else{
+                    System.out.println("O");
+            }  
+        }
+    }
+    }
     
     public boolean celluleOccupee(int i, int j){
         if (Cellules[i][j]!=null){
