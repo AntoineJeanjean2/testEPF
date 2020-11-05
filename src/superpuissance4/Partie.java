@@ -83,7 +83,15 @@ public class Partie {
             }
             
             boolean jetonAposer;
+            jetonAposer=grilleJeu.ajouterJetonDansColonne(joueurCourant.listeJetons[joueurCourant.nombreJetonsRestants-1],saisie);
             
+            if (jetonAposer==true){
+                joueurCourant.nombreJetonsRestants--;
+            }
+            
+            
+                    
+                
         }
         
        
