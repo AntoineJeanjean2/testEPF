@@ -58,13 +58,13 @@ public class Grille {
     public void afficherGrilleSurConsole(){
         for (int i=0; i <6; i++) { 
             for (int j =0;j < 7; j++){
-                if (Cellules[i][j].jetonCourant != null) {
-                    System.out.print(Cellules[i][j].lireCouleurDuJeton());
+                if (Cellules[i][j].jetonCourant != null) {                   
+                    System.out.print(Cellules[i][j].jetonCourant);
                 }
                 else{
-                    System.out.println("O");
+                    System.out.print("\u001B[0m N ");
             }  
-        }
+        }System.out.println();
     }
     }
     
