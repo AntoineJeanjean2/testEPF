@@ -87,7 +87,7 @@ public class Partie {
 
                 if (joueurCourant.nombreJetonsRestants>0){
                     boolean jetonAposer;
-                    jetonAposer=grilleJeu.ajouterJetonDansColonne(joueurCourant.listeJetons[joueurCourant.nombreJetonsRestants-1],saisie);
+                    jetonAposer=grilleJeu.ajouterJetonDansColonne(joueurCourant.listeJetons[joueurCourant.nombreJetonsRestants-1],saisie-1);
 
                     if (jetonAposer==true){
                         joueurCourant.nombreJetonsRestants--;                
