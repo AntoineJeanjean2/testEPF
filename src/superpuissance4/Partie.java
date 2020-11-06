@@ -96,7 +96,8 @@ public class Partie {
                         System.out.println("Cette colonne est remplie, veuillez saisir un autre numéro de colonne");
                         tourDeJeu();
                     }
-                }joueurCourant=prochainJoueur(joueurCourant);
+                }this.grilleJeu.afficherGrilleSurConsole();
+                 joueurCourant=prochainJoueur(joueurCourant);
         }
     }
 
