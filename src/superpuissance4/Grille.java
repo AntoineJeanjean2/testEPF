@@ -24,8 +24,8 @@ public class Grille {
     
     public boolean ajouterJetonDansColonne(Jeton jeton,int colonne){
         for (int i=1;i<6;i++){   
-            if (Cellules[5-i][colonne].jetonCourant==null){
-                Cellules[5-i][colonne].jetonCourant=jeton;
+            if (Cellules[6-i][colonne].jetonCourant==null){
+                Cellules[6-i][colonne].jetonCourant=jeton;
                 return true;
             }   
             if (i==5){
