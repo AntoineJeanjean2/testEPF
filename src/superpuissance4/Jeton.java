@@ -19,4 +19,11 @@ public class Jeton {
     public String lire_Couleur(String couleur){            
         return couleur;
 }
+    
+    @Override
+    public String toString(){
+        if("Rouge".equals(couleur))
+            return "\u001B[31m O ";
+        return "\u001B[33m O ";
+    }
 }
