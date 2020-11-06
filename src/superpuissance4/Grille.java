@@ -39,7 +39,7 @@ public class Grille {
     public boolean etreRemplie(){
         for (int i=1; i<6;i++){
             for (int j=1;j<7;j++){
-                if (Cellules[i][j]==null){
+                if (Cellules[i][j].jetonCourant==null){
                     return false;
                 }
                     
@@ -51,7 +51,7 @@ public class Grille {
     public void viderGrille(){
         for (int i=1; i<6;i++){
             for (int j=1;j<7;j++){
-                Cellules[i][j]=null;
+                Cellules[i][j].jetonCourant=null;
             }
     }
 }
@@ -83,53 +83,55 @@ public class Grille {
     }
 
     public boolean etreGagnantePourJoueur(Joueur unJoueur){
-        String couleurTest=unJoueur.couleur;
-        for (int i=0;i<6;i++){
-            for (int j=0;j<7;j++){
-                int ligne=i;
-                int colonne=j;
-               
-                    for (i=ligne;i<ligne+4&&i<6;i++){    //Test de l'alignement de 4 jetons sur une colonne 
-                        int compteur1=0;
-                        if (Cellules[i][j]!=null && Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
-                            compteur1++;
-                        }
-                        if (compteur1==4){
-                            return true;
-                        }
-                    }
+       for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (Cellules[i][j] != null && Cellules[i][j].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i][j + 1] != null && Cellules[i][j + 1].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i][j + 2] != null && Cellules[i][j + 2].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i][j + 3] != null && Cellules[i][j + 3].lireCouleurDuJeton().equals(unJoueur.couleur)) {
+                    return true;
+                }
 
-                    for (j=colonne;j<colonne+4&&j<7;j++){  //Test de l'alignement de 4 jetons sur une ligne
-                        int compteur2=0;
-                        if (Cellules[i][j]!=null && Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
-                            compteur2++;
-                        }
-                        if (compteur2==4){
-                            return true;
-                        }
-                    }
-                    for (i=ligne, j=colonne;i<ligne+4 && i<6 && j<colonne+4 && j<7;i++,j++){   //Test de l'alignement de 4 jetons sur une diagonale (haut droite vers bas gauche)
-                        int compteur3=0;
-                        if (Cellules[i][j]!=null && Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
-                            compteur3++;
-                            }
-                        if (compteur3==4){
-                            return true;
-                        }
-                    }
-
-                    for (i=ligne, j=colonne;i<ligne-4 && i<6 && j<colonne+4 && j<7;i--,j++){  //Test de l'alignement de 4 jetons sur une diagonale (bas droite vers haut gauche)
-                        int compteur4=0;
-                        if (Cellules[i][j]!=null && Cellules[i][j].lireCouleurDuJeton().equals(couleurTest)){
-                            compteur4++;
-                             }                    
-                        if (compteur4==4){
-                            return true;
-                        }
-                    } 
+            }
         }
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 7; j++) {
+                if (Cellules[i][j] != null && Cellules[i][j].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i + 1][j] != null && Cellules[i + 1][j].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i + 2][j] != null && Cellules[i + 2][j].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i + 3][j] != null && Cellules[i + 3][j].lireCouleurDuJeton().equals(unJoueur.couleur)) {
+                    return true;
+                }
+
+            }
+        }
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (Cellules[i][j] != null && Cellules[i][j].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i + 1][j + 1] != null && Cellules[i + 1][j + 1].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i + 2][j + 2] != null && Cellules[i + 2][j + 2].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i + 3][j + 3] != null && Cellules[i + 3][j + 3].lireCouleurDuJeton().equals(unJoueur.couleur)) {
+                    return true;
+                }
+
+            }
+        }
+
+        for (int i = 3; i < 6; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (Cellules[i][j] != null && Cellules[i][j].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i - 1][j + 1] != null && Cellules[i - 1][j + 1].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i - 2][j + 2] != null && Cellules[i - 2][j + 2].lireCouleurDuJeton().equals(unJoueur.couleur)
+                        && Cellules[i - 3][j + 3] != null && Cellules[i - 3][j + 3].lireCouleurDuJeton().equals(unJoueur.couleur)) {
+                    return true;
+                }
+
+            }
         }return false;
-        }
+
+    }
     
 
 
