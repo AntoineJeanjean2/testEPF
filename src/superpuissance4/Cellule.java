@@ -42,4 +42,38 @@ public class Cellule {
         }       
         return jetonCourant.couleur;
 }
+    
+    public boolean supprimerJeton(){
+        if(jetonCourant == null){
+            return false;
+        }
+        else{
+            jetonCourant = null;
+            return true;
+        }
+    }
+    
+    public boolean placerDesintegrateur(){
+        if (this.desintegrateur==true){
+            return false;
+        }
+        else{
+            this.desintegrateur=true;
+            return true;
+        }
+    }
+    
+    public boolean presenceDesintegrateur(){
+        return this.desintegrateur;
+}
+    
+    public boolean recupererDesintegrateur(){
+        if(presenceDesintegrateur()==true){
+            this.desintegrateur=false;
+            return true;            
+        }
+        else{
+            return false;
+        }
+    }   
 }
