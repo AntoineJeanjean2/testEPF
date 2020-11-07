@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author antoi
+ * @author Antoine Jeanjean
  */
 public class Partie {
 
@@ -77,7 +77,7 @@ public class Partie {
     }
 
     public int choix_joueur() {
-        System.out.println("Choisissez une action à effectuer");
+        System.out.println(joueurCourant.nom+"Choisissez une action à effectuer");
         System.out.println("1) Poser un jeton");
         System.out.println("2) Récupérer un jeton");
         System.out.println("3) Utiliser un désintégrateur");
@@ -106,7 +106,7 @@ public class Partie {
 
             if (choix == 1) {
 
-                System.out.println(joueurCourant.nom + " Choisissez dans quelles colonne vous souhaitez placer un jeton");
+                System.out.println(joueurCourant.nom + " Choisissez dans quelle colonne vous souhaitez placer un jeton");
                 Scanner sc = new Scanner(System.in);
                 int saisie = sc.nextInt();
 

@@ -7,7 +7,7 @@ package superpuissance4;
 
 /**
  *
- * @author antoi
+ * @author Antoine Jeanjean
  */
 public class Cellule {
     Jeton jetonCourant;

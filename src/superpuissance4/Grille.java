@@ -9,7 +9,7 @@ import java.util.Arrays;
 
 /**
  *
- * @author antoi
+ * @author Antoine Jeanjean
  */
 public class Grille {
     Cellule[][] Cellules=new Cellule[6][7];
@@ -23,7 +23,7 @@ public class Grille {
     }
     
     public boolean ajouterJetonDansColonne(Joueur joueurCourant,Jeton jeton,int colonne){
-        for (int i=1;i<6;i++){   
+        for (int i=1;i<7;i++){   
             if (Cellules[6-i][colonne].jetonCourant==null){
                 if (Cellules[6-i][colonne].presenceDesintegrateur()) {
                     Cellules[6-i][colonne].recupererDesintegrateur();
@@ -32,7 +32,7 @@ public class Grille {
                 Cellules[6-i][colonne].jetonCourant=jeton;
                 return true;
             }   
-            if (i==5){
+            if (i==6){
                 return false;
             }
         } return false;
@@ -42,7 +42,7 @@ public class Grille {
     public boolean etreRemplie(){
         for (int i=1; i<6;i++){
             for (int j=1;j<7;j++){
-                if (Cellules[i][j].jetonCourant==null){
+                if (Cellules[i][j].jetonCourant==null || Cellules[i][j].desintegrateur==true){
                     return false;
                 }
                     
