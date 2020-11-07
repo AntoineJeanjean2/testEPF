@@ -22,19 +22,22 @@ public class Grille {
         }
     }
     
-    public boolean ajouterJetonDansColonne(Jeton jeton,int colonne){
+    public boolean ajouterJetonDansColonne(Joueur joueurCourant,Jeton jeton,int colonne){
         for (int i=1;i<6;i++){   
             if (Cellules[6-i][colonne].jetonCourant==null){
+                if (Cellules[6-i][colonne].presenceDesintegrateur()) {
+                    Cellules[6-i][colonne].recupererDesintegrateur();
+                    joueurCourant.nombreDesintegrateurs++;
+                }
                 Cellules[6-i][colonne].jetonCourant=jeton;
                 return true;
             }   
             if (i==5){
                 return false;
             }
-        
+        } return false;
         }
-        return false;
-    }
+
     
     public boolean etreRemplie(){
         for (int i=1; i<6;i++){
@@ -60,6 +63,9 @@ public class Grille {
             for (int j =0;j < 7; j++){
                 if (Cellules[i][j].jetonCourant != null) {                   
                     System.out.print(Cellules[i][j].jetonCourant);
+                }
+                else if(Cellules[i][j].desintegrateur==true){
+                    System.out.print("\u001B[0m D ");
                 }
                 else{
                     System.out.print("\u001B[0m N ");
@@ -134,4 +140,30 @@ public class Grille {
     public boolean colonneRemplie(int colonne){
         return Cellules[5][colonne].recupererJeton()!=null;
     }  
+    
+    public void tasserGrille(int ligne, int colonne){
+        for (int i = ligne; i >=0 ; i--) {
+            if (i == 0) {
+                Cellules[i][colonne].jetonCourant = null;
+            } else {
+                Cellules[i][colonne].jetonCourant = Cellules[i - 1][colonne].jetonCourant;
+            }
+
+        }
+    }
+    
+    public boolean placerDesintegrateur(int ligne,int colonne){
+        if (Cellules[ligne][colonne].desintegrateur==true){
+            return false;            
+        }
+        else{
+            Cellules[ligne][colonne].desintegrateur=true;
+            return true;
+        }
+}
+    
+    public Jeton recupererJeton(int ligne, int colonne){
+        Jeton unJeton=Cellules[ligne][colonne].recupererJeton();
+        return unJeton;
+    }
 }
