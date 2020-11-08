@@ -23,7 +23,7 @@ public class Joueur {
         couleur=uneCouleur;
     }
     
-    public void ajouter_jeton(Jeton jeton){
+    public void ajouter_jeton(Jeton jeton){   //On ajoute les jetons au joueur
          for (int i=0;i<listeJetons.length;i++)   
             if (listeJetons[i]==null){
                 listeJetons[i]=jeton;
@@ -34,7 +34,7 @@ public class Joueur {
     public void obtenirDesintegrateur(){
         nombreDesintegrateurs++;
 }
-    public boolean utiliserDesintegrateur(){
+    public boolean utiliserDesintegrateur(){  //On vérifie le nombre de désintégrateurs du joueur avant de le désindenter 
         if (nombreDesintegrateurs<1){
             return false;
         }

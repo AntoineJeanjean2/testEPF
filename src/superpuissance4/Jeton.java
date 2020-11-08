@@ -12,7 +12,7 @@ package superpuissance4;
 public class Jeton {
     String couleur;
     
-    public Jeton(String uneCouleur){
+    public Jeton(String uneCouleur){  //On attribue une couleur au jeton
         couleur=uneCouleur;
     }
     
@@ -21,7 +21,7 @@ public class Jeton {
 }
     
     @Override
-    public String toString(){
+    public String toString(){  //On attribue un unicode au jeton en fonction de sa couleur pour améliorer l'affichage graphique
         if("Rouge".equals(couleur))
             return "\u001B[31m O ";
         return "\u001B[33m O ";
